@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DroneGo - Producción audiovisual y filmación aérea profesional con drones en Madrid.">
+    <meta name="keywords" content="filmación aérea en Madrid, vídeo con dron en Brunete, producción audiovisual con drones, DroneGo">
+    <title>DroneGo | Imágenes que elevan tu proyecto</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef8ff',
+                            500: '#0ea5e9', // Electric blue accent
+                            600: '#0284c7',
+                            900: '#0f172a', // Deep dark background
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-brand-950 text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
+                <i data-lucide="plane" class="text-brand-500"></i>
+                Dron<span class="text-brand-500">GO</span>
+            </a>
+            <div class="hidden md:flex gap-8 items-center text-sm font-medium">
+                <a href="#about" class="hover:text-brand-500 transition-colors">Nosotros</a>
+                <a href="#services" class="hover:text-brand-500 transition-colors">Servicios</a>
+                <a href="#portfolio" class="hover:text-brand-500 transition-colors">Trabajos</a>
+                <a href="#testimonials" class="hover:text-brand-500 transition-colors">Opiniones</a>
+                <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-full transition-all shadow-lg shadow-brand-500/20">Presupuesto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Using a placeholder drone video from a royalty-free source -->
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+                <source src="https://cdn.pixabay.com/vimeo/328222634/drone-22634.mp4?width=1280&hash=f570773d5ff64de415c8fb9956d489b4f738f7e2" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-950/60 via-brand-950/40 to-brand-950"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto gs-reveal">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+                Imágenes que <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-cyan-300">elevan</span> tu proyecto
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-10 font-light">
+                Producción audiovisual y filmación aérea profesional con drones en Madrid.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-full font-medium transition-all shadow-xl shadow-brand-500/20 w-full sm:w-auto flex items-center justify-center gap-2">
+                    Solicitar presupuesto <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#portfolio" class="border border-slate-600 hover:border-slate-400 hover:bg-slate-800/50 text-white px-8 py-4 rounded-full font-medium transition-all w-full sm:w-auto">
+                    Ver trabajos
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <a href="#about"><i data-lucide="chevron-down" class="w-8 h-8"></i></a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="gs-reveal">
+                    <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-3">Sobre DroneGo</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Perspectivas únicas, calidad cinematográfica.</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Somos especialistas en grabación aérea, operando equipos de drones de última generación para capturar la esencia de tu proyecto con una calidad visual inigualable.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Con base en Brunete (Madrid) y cobertura en toda la Comunidad, ofrecemos un servicio disponible las 24 horas para adaptarnos a las necesidades de cualquier producción audiovisual, evento o campaña inmobiliaria.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-brand-950 flex items-center justify-center"><i data-lucide="award" class="text-brand-500"></i></div>
+                            <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-brand-950 flex items-center justify-center"><i data-lucide="clock" class="text-brand-500"></i></div>
+                        </div>
+                        <span class="text-sm font-medium text-slate-300">Disponibilidad 24/7 en Madrid</span>
+                    </div>
+                </div>
+                <div class="relative gs-reveal delay-100">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Drone operator" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 bg-brand-900 border border-slate-800 p-6 rounded-2xl shadow-xl glassmorphism">
+                        <div class="flex items-center gap-4">
+                            <div class="text-4xl font-bold text-brand-500">4.6</div>
+                            <div>
+                                <div class="flex text-yellow-400 mb-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <div class="text-xs text-slate-400">Basado en reseñas verificadas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-brand-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 gs-reveal">
+                <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-3">Nuestros Servicios</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Soluciones audiovisuales integrales</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-gradient-to-br from-slate-900 to-brand-900 rounded-3xl p-10 md:p-16 border border-slate-800 relative overflow-hidden gs-reveal">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
+                
+                <h3 class="text-3xl font-bold text-white mb-10 relative z-10">¿Por qué elegir DroneGo?</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8 relative z-10" id="features-grid">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-brand-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12 gs-reveal">
+                <div>
+                    <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-3">Portafolio</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Proyectos Destacados</h3>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 gs-reveal">
+                <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-3">Opiniones</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Lo que dicen nuestros clientes</h3>
+                <div class="flex justify-center mt-4 text-yellow-400">
+                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    <i data-lucide="star-half" class="w-6 h-6 fill-current"></i>
+                </div>
+                <p class="text-slate-400 mt-2">Valoración media de 4.6/5 estrellas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6" id="testimonials-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-brand-950 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="gs-reveal">
+                    <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-3">Contacto</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Empecemos a volar.</h3>
+                    <p class="text-slate-400 mb-10">Cuéntanos sobre tu proyecto y te enviaremos un presupuesto sin compromiso en menos de 24 horas.</p>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-900 flex items-center justify-center flex-shrink-0 text-brand-500">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Ubicación</h4>
+                                <p class="text-slate-400 text-sm mt-1">Calle Norte, 30<br>28690, Brunete, Madrid</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-900 flex items-center justify-center flex-shrink-0 text-brand-500">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Llámanos (24/7)</h4>
+                                <p class="text-slate-400 text-sm mt-1">+34 900 123 456</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <a href="#" class="flex-1 bg-brand-600 hover:bg-brand-500 text-white px-4 py-3 rounded-xl font-medium transition-all text-center flex items-center justify-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4"></i> Llamar
+                        </a>
+                        <a href="#" class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-xl font-medium transition-all text-center flex items-center justify-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 gs-reveal delay-100">
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-1">Nombre</label>
+                                <input type="text" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-1">Teléfono</label>
+                                <input type="tel" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-1">Email</label>
+                            <input type="email" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-1">Tipo de Proyecto</label>
+                            <select class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none" required>
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option>Evento corporativo</option>
+                                <option>Inmobiliaria</option>
+                                <option>Cine / TV</option>
+                                <option>Turismo</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-1">Mensaje</label>
+                            <textarea rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors" required></textarea>
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-white text-brand-950 hover:bg-slate-200 px-6 py-4 rounded-xl font-medium transition-all">
+                                Enviar solicitud
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-500 text-center mt-4">
+                            Al enviar aceptas nuestro Aviso Legal y Política de Privacidad.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <a href="#" class="text-2xl font-bold tracking-tighter text-white flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <i data-lucide="plane" class="text-brand-500"></i>
+                    Dron<span class="text-brand-500">GO</span>
+                </a>
+                <p class="text-slate-500 text-sm max-w-sm mx-auto md:mx-0">Producción audiovisual y filmación aérea profesional en Madrid. Calidad cinematográfica para elevar tu proyecto.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-medium mb-4">Enlaces</h4>
+                <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="#about" class="hover:text-brand-500 transition-colors">Nosotros</a></li>
+                    <li><a href="#services" class="hover:text-brand-500 transition-colors">Servicios</a></li>
+                    <li><a href="#portfolio" class="hover:text-brand-500 transition-colors">Portafolio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-medium mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="#" class="hover:text-brand-500 transition-colors">Aviso Legal</a></li>
+                    <li><a href="#" class="hover:text-brand-500 transition-colors">Política de Privacidad</a></li>
+                    <li><a href="#" class="hover:text-brand-500 transition-colors">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-900 text-sm text-slate-600 text-center">
+            &copy; 2026 DroneGo. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[100] bg-brand-950/95 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <button id="close-modal" class="absolute top-6 right-6 text-white hover:text-brand-500 transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative">
+            <div class="absolute inset-0 flex items-center justify-center text-slate-500">
+                <p>Reproductor de vídeo (Espacio preparado para integración)</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

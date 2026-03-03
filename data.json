@@ -1,0 +1,67 @@
+{
+    "services": [
+        {
+            "icon": "camera",
+            "title": "Filmación aérea con dron",
+            "desc": "Tomas espectaculares en 4K/5K para proyectos cinematográficos y publicidad."
+        },
+        {
+            "icon": "building",
+            "title": "Vídeos corporativos",
+            "desc": "Destaca la magnitud de tus instalaciones y procesos industriales desde el aire."
+        },
+        {
+            "icon": "calendar",
+            "title": "Cobertura de eventos",
+            "desc": "Inmortaliza festivales, bodas o eventos deportivos con perspectivas únicas."
+        },
+        {
+            "icon": "home",
+            "title": "Vídeos inmobiliarios",
+            "desc": "Acelera las ventas mostrando propiedades y su entorno en su máximo esplendor."
+        },
+        {
+            "icon": "map",
+            "title": "Promociones turísticas",
+            "desc": "Atrae más visitantes con recorridos aéreos impresionantes de destinos."
+        },
+        {
+            "icon": "video",
+            "title": "Edición profesional",
+            "desc": "Postproducción, etalonaje y diseño sonoro para un resultado final impecable."
+        }
+    ],
+    "features": [
+        {"icon": "cpu", "title": "Tecnología Avanzada", "desc": "Equipos de última generación"},
+        {"icon": "shield-check", "title": "Operadores Certificados", "desc": "Pilotos con licencia oficial"},
+        {"icon": "clapperboard", "title": "Calidad Cine", "desc": "Resolución hasta 5K y RAW"},
+        {"icon": "zap", "title": "Entrega Rápida", "desc": "Plazos optimizados"},
+        {"icon": "clock", "title": "Servicio 24/7", "desc": "Disponibilidad total"},
+        {"icon": "users", "title": "Atención Personalizada", "desc": "Nos adaptamos a tu proyecto"}
+    ],
+    "portfolio": [
+        {"img": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Inmobiliaria Premium", "category": "Vídeo Inmobiliario"},
+        {"img": "https://images.unsplash.com/photo-1506905925246-2114868202b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Campaña Turismo Madrid", "category": "Promoción Turística"},
+        {"img": "https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Festival de Verano", "category": "Eventos"},
+        {"img": "https://images.unsplash.com/photo-1518349619113-03114f06ac3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Planta Solar Brunete", "category": "Corporativo"},
+        {"img": "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Cortometraje Indie", "category": "Ficción"},
+        {"img": "https://images.unsplash.com/photo-1521404026383-a4c3f58a3617?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Seguimiento Obra", "category": "Industrial"}
+    ],
+    "testimonials": [
+        {
+            "name": "Carlos M.",
+            "role": "Director de Marketing",
+            "text": "El nivel de detalle y la estabilidad de las tomas aéreas elevaron nuestro spot corporativo a otro nivel. Altamente profesionales y rápidos."
+        },
+        {
+            "name": "Laura G.",
+            "role": "Agencia Inmobiliaria",
+            "text": "Desde que usamos DroneGo para grabar nuestras propiedades exclusivas, las visitas han aumentado un 40%. La calidad cinematográfica es real."
+        },
+        {
+            "name": "David R.",
+            "role": "Productor de Eventos",
+            "text": "Puntualidad, licencias en regla y un trato exquisito. Es un alivio trabajar con operadores tan resolutivos en Madrid."
+        }
+    ]
+}
