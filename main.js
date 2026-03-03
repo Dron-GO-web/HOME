@@ -46,7 +46,8 @@ function renderFeatures(features) {
 function renderPortfolio(items) {
     const container = document.getElementById('portfolio-grid');
     container.innerHTML = items.map(item => `
-        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900">
+        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 cursor-pointer" 
+             data-video="${item.video || ''}">
             <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
             <div class="overlay absolute inset-0 flex flex-col justify-end p-6">
                 <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
@@ -58,8 +59,12 @@ function renderPortfolio(items) {
         </div>
     `).join('');
 
+    // Esto activa el clic en cada tarjeta para pasar el video correcto
     document.querySelectorAll('.portfolio-item').forEach(el => {
-        el.addEventListener('click', openModal);
+        el.addEventListener('click', () => {
+            const videoId = el.getAttribute('data-video');
+            openModal(videoId);
+        });
     });
 }
 
@@ -111,18 +116,34 @@ function initNavbar() {
             navbar.classList.add('shadow-lg');
             navbar.style.background = 'rgba(2, 6, 23, 0.85)';
         } else {
-            navbar.classList.remove('shadow-lg');
-            navbar.style.background = 'rgba(2, 6, 23, 0.6)';
-        }
-    });
-}
-
-const modal = document.getElementById('video-modal');
-const closeBtn = document.getElementById('close-modal');
-
-function openModal() {
+function openModal(videoId) {
     modal.classList.remove('opacity-0', 'pointer-events-none');
     document.body.style.overflow = 'hidden';
+
+    // Buscamos el div dentro del modal para meter el video
+    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
+    
+    if (videoId) {
+        videoContainer.innerHTML = `
+            <div class="aspect-video w-full">
+                <iframe 
+                    class="w-full h-full rounded-xl shadow-2xl" 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>`;
+    }
+}
+
+function closeModal() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+    
+    // Limpiamos el contenido para que el video deje de sonar
+    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
+    videoContainer.innerHTML = '';
 }
 
 function closeModal() {
