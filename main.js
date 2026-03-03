@@ -135,26 +135,50 @@ modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
 
-document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // Referencia al botón para efectos visuales
     const btn = e.target.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
+    
+    // Capturar datos del formulario
+    const nombre = document.getElementById('nombre').value;
+    const tlf = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const proyecto = document.getElementById('proyecto').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    // Tu número de teléfono
+    const miTelefono = "34620611249";
+
+    // Construir el mensaje para WhatsApp
+    const texto = `Hola Dron-GO! 🚁%0A%0A*Nueva Solicitud de Presupuesto*%0A%0A` +
+                  `👤 *Nombre:* ${nombre}%0A` +
+                  `📞 *Teléfono:* ${tlf}%0A` +
+                  `📧 *Email:* ${email}%0A` +
+                  `🛠️ *Proyecto:* ${proyecto}%0A` +
+                  `💬 *Mensaje:* ${mensaje}`;
+
+    // Efecto visual en el botón
     btn.innerHTML = 'Enviando...';
     btn.disabled = true;
-    
+
     setTimeout(() => {
-        btn.innerHTML = '¡Mensaje Enviado!';
-        btn.classList.add('bg-green-500', 'text-white');
-        btn.classList.remove('bg-white', 'text-brand-950');
-        e.target.reset();
+        // Abrir WhatsApp en una nueva pestaña
+        window.open(`https://wa.me/${miTelefono}?text=${texto}`, '_blank');
         
+        // Restaurar botón y limpiar formulario
+        btn.innerHTML = '¡Solicitud Abierta!';
+        btn.classList.add('bg-green-500', 'text-white');
+        e.target.reset();
+
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.disabled = false;
             btn.classList.remove('bg-green-500', 'text-white');
-            btn.classList.add('bg-white', 'text-brand-950');
         }, 3000);
-    }, 1500);
+    }, 1000);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
