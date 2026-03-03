@@ -150,7 +150,7 @@ document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     const mensaje = document.getElementById('mensaje').value;
 
     // Tu número de teléfono
-    const miTelefono = "34620611249";
+    const miTelefono = "620611249";
 
     // Construir el mensaje para WhatsApp
     const texto = `Hola Dron-GO! 🚁%0A%0A*Nueva Solicitud de Presupuesto*%0A%0A` +
