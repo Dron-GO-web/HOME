@@ -43,48 +43,10 @@ function renderFeatures(features) {
     `).join('');
 }
 
-function openModal(videoId) {
-    const modal = document.getElementById('video-modal');
-    if (!modal) return;
-
-    // Buscamos el contenedor del video
-    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
-    
-    if (videoId && videoContainer) {
-        videoContainer.innerHTML = `
-            <div class="aspect-video w-full">
-                <iframe 
-                    class="w-full h-full rounded-xl shadow-2xl" 
-                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>`;
-    }
-
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    const modal = document.getElementById('video-modal');
-    if (!modal) return;
-    
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = '';
-    
-    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
-    if (videoContainer) videoContainer.innerHTML = '';
-}
-
 function renderPortfolio(items) {
     const container = document.getElementById('portfolio-grid');
-    if (!container) return;
-
     container.innerHTML = items.map(item => `
-        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 cursor-pointer" 
-             onclick="openModal('${item.video || ''}')">
+        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900">
             <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
             <div class="overlay absolute inset-0 flex flex-col justify-end p-6">
                 <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
@@ -96,7 +58,9 @@ function renderPortfolio(items) {
         </div>
     `).join('');
 
-    lucide.createIcons();
+    document.querySelectorAll('.portfolio-item').forEach(el => {
+        el.addEventListener('click', openModal);
+    });
 }
 
 function renderTestimonials(testimonials) {
@@ -156,51 +120,21 @@ function initNavbar() {
 const modal = document.getElementById('video-modal');
 const closeBtn = document.getElementById('close-modal');
 
-// Esta es la función que abrirá el vídeo
-function openModal(videoId) {
-    if (!modal) return;
-    
-    // Buscamos el contenedor donde está el texto "Espacio preparado..."
-    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
-
-    if (videoId && videoContainer) {
-        videoContainer.innerHTML = `
-            <div class="aspect-video w-full">
-                <iframe 
-                    class="w-full h-full rounded-xl shadow-2xl" 
-                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>`;
-    }
-
+function openModal() {
     modal.classList.remove('opacity-0', 'pointer-events-none');
     document.body.style.overflow = 'hidden';
 }
 
-// Esta es la función que cerrará y detendrá el vídeo
 function closeModal() {
     modal.classList.add('opacity-0', 'pointer-events-none');
     document.body.style.overflow = '';
-    
-    // Vaciamos el contenido para que el vídeo deje de sonar
-    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
-    if (videoContainer) videoContainer.innerHTML = '';
 }
 
-// Configuración de eventos de cierre
-document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('close-modal');
-    const modal = document.getElementById('video-modal');
-
-    closeBtn?.addEventListener('click', closeModal);
-    
-    modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
 });
+
 document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
 
