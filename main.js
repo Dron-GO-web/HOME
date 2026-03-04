@@ -43,6 +43,41 @@ function renderFeatures(features) {
     `).join('');
 }
 
+function openModal(videoId) {
+    const modal = document.getElementById('video-modal');
+    if (!modal) return;
+
+    // Buscamos el contenedor del video
+    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
+    
+    if (videoId && videoContainer) {
+        videoContainer.innerHTML = `
+            <div class="aspect-video w-full">
+                <iframe 
+                    class="w-full h-full rounded-xl shadow-2xl" 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>`;
+    }
+
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('video-modal');
+    if (!modal) return;
+    
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+    
+    const videoContainer = modal.querySelector('.max-w-4xl') || modal.querySelector('div > div');
+    if (videoContainer) videoContainer.innerHTML = '';
+}
+
 function renderPortfolio(items) {
     const container = document.getElementById('portfolio-grid');
     if (!container) return;
@@ -61,7 +96,6 @@ function renderPortfolio(items) {
         </div>
     `).join('');
 
-    // Refrescamos los iconos de Lucide para que aparezca el "play"
     lucide.createIcons();
 }
 
@@ -156,10 +190,16 @@ function closeModal() {
     if (videoContainer) videoContainer.innerHTML = '';
 }
 
-// Configuramos los botones de cierre
-closeBtn?.addEventListener('click', closeModal);
-modal?.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
+// Configuración de eventos de cierre
+document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('close-modal');
+    const modal = document.getElementById('video-modal');
+
+    closeBtn?.addEventListener('click', closeModal);
+    
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
 });
 document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
