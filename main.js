@@ -46,8 +46,7 @@ function renderFeatures(features) {
 function renderPortfolio(items) {
     const container = document.getElementById('portfolio-grid');
     container.innerHTML = items.map(item => `
-        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 cursor-pointer" 
-             onclick="openModal('${item.video || ''}')">
+        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900">
             <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
             <div class="overlay absolute inset-0 flex flex-col justify-end p-6">
                 <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
@@ -58,9 +57,6 @@ function renderPortfolio(items) {
             </div>
         </div>
     `).join('');
-    
-    lucide.createIcons();
-}
 
     document.querySelectorAll('.portfolio-item').forEach(el => {
         el.addEventListener('click', openModal);
@@ -129,41 +125,14 @@ function openModal() {
     document.body.style.overflow = 'hidden';
 }
 
-function openModal(videoId) {
-    const modal = document.getElementById('video-modal');
-    // Seleccionamos el contenedor donde están las letras que quieres quitar
-    const container = modal.querySelector('.aspect-video div'); 
-    
-    if (videoId && container) {
-        // Esto borra las letras y mete el vídeo directamente
-        container.innerHTML = `
-            <iframe 
-                class="w-full h-full rounded-xl" 
-                src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>`;
-    }
-
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = 'hidden';
-}
-
 function closeModal() {
-    const modal = document.getElementById('video-modal');
     modal.classList.add('opacity-0', 'pointer-events-none');
     document.body.style.overflow = '';
-    
-    // IMPORTANTE: Limpiamos el vídeo al cerrar para que no siga sonando
-    const container = modal.querySelector('.aspect-video div');
-    if (container) container.innerHTML = '<p class="text-slate-500">Cargando...</p>';
 }
 
-// Configurar los botones de cierre
-document.getElementById('close-modal')?.addEventListener('click', closeModal);
-document.getElementById('video-modal')?.addEventListener('click', (e) => {
-    if (e.target.id === 'video-modal') closeModal();
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
 });
 
 document.getElementById('contactForm')?.addEventListener('submit', function(e) {
