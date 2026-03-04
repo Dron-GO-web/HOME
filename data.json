@@ -41,8 +41,8 @@
     ],
     "portfolio": [
         {"img": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Inmobiliaria Premium", "category": "Vídeo Inmobiliario"},
-        {"img": "https://i.pinimg.com/736x/28/d1/62/28d162c853e339695648bef360620b09", "title": "Campaña Turismo Madrid", "category": "Promoción Turística"},
-        {"img": "https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Festival de Verano", "category": "Eventos"},
+        {"jpg": "https://www.rutadelvinodenavarra.com/wp-content/uploads/2018/11/001-oficina-turismo-puente-ruta-del-vino-enoturismo-navarra-espana", "title": "Campaña Turismo Madrid", "category": "Promoción Turística"},
+        {"img": "https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Festival de Verano", "category": "Eventos", "video": "aLZZsl74_VQ"},
         {"img": "https://images.unsplash.com/photo-1518349619113-03114f06ac3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Planta Solar Brunete", "category": "Corporativo"},
         {"img": "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Cortometraje Indie", "category": "Ficción"},
         {"img": "https://images.unsplash.com/photo-1521404026383-a4c3f58a3617?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "title": "Seguimiento Obra", "category": "Industrial"}
