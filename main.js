@@ -46,7 +46,7 @@ function renderFeatures(features) {
 function renderPortfolio(items) {
     const container = document.getElementById('portfolio-grid');
     container.innerHTML = items.map(item => `
-        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900">
+        <div class="portfolio-item group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900" data-video="${item.video}">
             <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
             <div class="overlay absolute inset-0 flex flex-col justify-end p-6">
                 <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
@@ -120,7 +120,21 @@ function initNavbar() {
 const modal = document.getElementById('video-modal');
 const closeBtn = document.getElementById('close-modal');
 
-function openModal() {
+function openModal(e) {
+    const videoUrl = e.currentTarget.dataset.video;
+
+    const container = modal.querySelector('.aspect-video');
+
+    container.innerHTML = `
+        <iframe 
+            src="${videoUrl}?autoplay=1" 
+            class="w-full h-full"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+    `;
+
     modal.classList.remove('opacity-0', 'pointer-events-none');
     document.body.style.overflow = 'hidden';
 }
@@ -128,6 +142,9 @@ function openModal() {
 function closeModal() {
     modal.classList.add('opacity-0', 'pointer-events-none');
     document.body.style.overflow = '';
+
+    const container = modal.querySelector('.aspect-video');
+    container.innerHTML = '';
 }
 
 closeBtn.addEventListener('click', closeModal);
